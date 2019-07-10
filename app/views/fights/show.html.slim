@@ -3,7 +3,7 @@ p#notice = notice
 h5 Détails du combat
 
 - events.each do |event|
-  p= event.to_str
+  p= details(event)
 
 br
 h5 Le gagnant est #{fight.winner.name} !!
