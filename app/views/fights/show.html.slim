@@ -1,6 +1,13 @@
 p#notice = notice
 
+h5 Détails du combat
 
-=> link_to 'Edit', edit_fight_path(@fight)
-'|
-=< link_to 'Back', fights_path
+- events.each do |event|
+  p= event.to_str
+
+br
+h5 Le gagnant est #{fight.winner.name} !!
+
+//=> link_to 'Edit', edit_fight_path(@fight)
+//'|
+//=< link_to 'Back', fights_path

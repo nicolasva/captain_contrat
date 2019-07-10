@@ -1,12 +1,16 @@
 class FightsController < ApplicationController
   before_action :set_fight, only: [:show, :edit, :update, :destroy]
 
+  expose(:events) do
+    fight.fight_events.order(created_at: :asc)
+  end
+
   expose(:rank) do
     params[:rank]
   end
 
   expose(:fight) do
-    params[:id] ? Fight.find(params[:id])  : Fight.new
+    params[:id] ? Fight.includes(winner: [:hero, :weapon, :shield], loser: [:hero, :weapon, :shield]).find(params[:id])  : Fight.new
   end
 
   expose(:weapons) do
@@ -43,16 +47,29 @@ class FightsController < ApplicationController
   # POST /fights
   # POST /fights.json
   def create
-    @fight = Fight.new(fight_params)
+    #@fight = Fight.new(fight_params)
 
-    respond_to do |format|
-      if @fight.save
-        format.html { redirect_to @fight, notice: 'Fight was successfully created.' }
-        format.json { render :show, status: :created, location: @fight }
-      else
-        format.html { render :new }
-        format.json { render json: @fight.errors, status: :unprocessable_entity }
-      end
+    #respond_to do |format|
+    #  if @fight.save
+    #    format.html { redirect_to @fight, notice: 'Fight was successfully created.' }
+    #    format.json { render :show, status: :created, location: @fight }
+    #  else
+    #    format.html { render :new }
+    #    format.json { render json: @fight.errors, status: :unprocessable_entity }
+    #  end
+    #end
+
+    if params[:one][:hero_id] == params[:two][:hero_id]
+      flash[:alert] = "Impossible de faire combattre un héro avec lui-même..."
+      redirect_to new_rank_fight_path(Hero.find(params[:one][:hero_id]).rank)
+    else
+      #fighter_one = Fighter.create(fighter_params(:one))
+      #fighter_two = Fighter.create(fighter_params(:two))
+
+      #@fight = Fight.fight_between(fighter_one, fighter_two)
+      fight = FightService.new(fighter_params(:one), fighter_params(:two)).call
+
+      redirect_to fight_path(fight)
     end
   end
 
@@ -87,7 +104,7 @@ class FightsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def fight_params
-      params.fetch(:fight, {})
+    def fighter_params(key)
+      params.require(key).permit(:hero_id, :weapon_id, :shield_id)
     end
 end
