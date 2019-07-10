@@ -17,7 +17,7 @@ h1.header.center.orange-text= hero.name
 .row.center
   = render "heros/partial/wins/wins", wins: hero.wins
 
-  = render "heros/partial/lost/lost", lost: hero.losses
+  = render "heros/partial/lost/lost", losses: hero.losses
 
 => link_to 'Edit', edit_hero_path(@hero)
 '|
