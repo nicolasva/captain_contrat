@@ -12,8 +12,8 @@
                health: 100 + Random.rand(49999),
                attack: 100 + Random.rand(999),
                speed: Random.rand(10),
-               dodge_rate: Random.rand(ENV['MAX_DODGE_RATE'].to_i),
-               critical_rate: Random.rand(ENV['MAX_CRITICAL_RATE'].to_i)
+               dodge_rate: "30",
+               critical_rate: "100"
 end
 
 Weapon.create! name: "Justifier", min_damage: 10, max_damage: 20
