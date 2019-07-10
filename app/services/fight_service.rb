@@ -26,7 +26,6 @@ class FightService
 
 
   def generate_fight_events
-    #first_fighter, second_fighter = detect_order_of_attacks
     attack_service = AttackService.new(fighter_one, fighter_two)
     first_fighter, second_fighter = attack_service.detect_order_of_attacks
     while first_fighter.health > 0 && second_fighter.health > 0 do
