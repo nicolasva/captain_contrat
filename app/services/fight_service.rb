@@ -37,11 +37,6 @@ class FightService
   end
 
   def detect_winner_and_loser(first_fighter, second_fighter)
-    if first_fighter.health > 0
-      [first_fighter, second_fighter]
-    else
-      [second_fighter, first_fighter]
-    end
+    first_fighter.health > 0 ? [first_fighter, second_fighter] : [second_fighter, first_fighter]
   end
-
 end
