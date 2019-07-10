@@ -63,10 +63,6 @@ class FightsController < ApplicationController
       flash[:alert] = "Impossible de faire combattre un héro avec lui-même..."
       redirect_to new_rank_fight_path(Hero.find(params[:one][:hero_id]).rank)
     else
-      #fighter_one = Fighter.create(fighter_params(:one))
-      #fighter_two = Fighter.create(fighter_params(:two))
-
-      #@fight = Fight.fight_between(fighter_one, fighter_two)
       fight = FightService.new(fighter_params(:one), fighter_params(:two)).call
 
       redirect_to fight_path(fight)
