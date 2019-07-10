@@ -1,0 +1,4 @@
+.col.s6
+  h5 Les défaites de ce héro
+  - losses.each do |loss|
+    p= link_to "Contre #{loss.winner.name}", fight_path(loss)

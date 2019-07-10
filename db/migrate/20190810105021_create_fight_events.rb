@@ -1,7 +1,7 @@
 class CreateFightEvents < ActiveRecord::Migration[5.2]
   def change
     create_table :fight_events do |t|
-      t.references  :fights, index: true
+      t.references  :fight, index: true
       t.string      :attacker_name
       t.integer     :attack_type
       t.integer     :attack_damage

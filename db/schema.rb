@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_105021) do
+ActiveRecord::Schema.define(version: 2019_08_10_105021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "fight_events", force: :cascade do |t|
-    t.bigint "fights_id"
+    t.bigint "fight_id"
     t.string "attacker_name"
     t.integer "attack_type"
     t.integer "attack_damage"
@@ -25,28 +25,28 @@ ActiveRecord::Schema.define(version: 2019_07_10_105021) do
     t.integer "defender_health"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["fights_id"], name: "index_fight_events_on_fights_id"
+    t.index ["fight_id"], name: "index_fight_events_on_fight_id"
   end
 
   create_table "fighters", force: :cascade do |t|
-    t.bigint "heros_id"
-    t.bigint "weapons_id"
-    t.bigint "shields_id"
+    t.bigint "hero_id"
+    t.bigint "weapon_id"
+    t.bigint "shield_id"
     t.text "hero_attributes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["heros_id"], name: "index_fighters_on_heros_id"
-    t.index ["shields_id"], name: "index_fighters_on_shields_id"
-    t.index ["weapons_id"], name: "index_fighters_on_weapons_id"
+    t.index ["hero_id"], name: "index_fighters_on_hero_id"
+    t.index ["shield_id"], name: "index_fighters_on_shield_id"
+    t.index ["weapon_id"], name: "index_fighters_on_weapon_id"
   end
 
   create_table "fights", force: :cascade do |t|
-    t.bigint "winners_id"
-    t.bigint "losers_id"
+    t.bigint "winner_id"
+    t.bigint "loser_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["losers_id"], name: "index_fights_on_losers_id"
-    t.index ["winners_id"], name: "index_fights_on_winners_id"
+    t.index ["loser_id"], name: "index_fights_on_loser_id"
+    t.index ["winner_id"], name: "index_fights_on_winner_id"
   end
 
   create_table "heros", force: :cascade do |t|

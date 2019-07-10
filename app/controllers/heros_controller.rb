@@ -8,6 +8,7 @@ class HerosController < ApplicationController
   expose(:hero_form) do
     HeroForm.new(hero)
   end
+
   # GET /heros
   # GET /heros.json
   def index
@@ -21,7 +22,6 @@ class HerosController < ApplicationController
 
   # GET /heros/new
   def new
-    @hero = Hero.new
   end
 
   # GET /heros/1/edit

@@ -1,5 +1,23 @@
 p#notice = notice
 
+h1.header.center.orange-text= hero.name
+
+.col.s12
+  .col.s6
+    p= "Nom : #{hero.name}"
+    p= "Points de vie : #{hero.health}"
+    p= "Points d'attaque : #{hero.attack}"
+    p= "Puissance : #{hero.power}"
+  .col.s6
+    p= "Vitesse : #{hero.speed}"
+    p= "Chance d'évasion : #{hero.dodge_rate}%"
+    p= "Chance de critique : #{hero.critical_rate}%"
+    p= "Rang : #{hero.rank}"
+
+.row.center
+  = render "heros/partial/wins/wins", wins: hero.wins
+
+  = render "heros/partial/lost/lost", lost: hero.losses
 
 => link_to 'Edit', edit_hero_path(@hero)
 '|

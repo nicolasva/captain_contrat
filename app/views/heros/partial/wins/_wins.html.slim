@@ -1,0 +1,4 @@
+.col.s6
+  h5 Les victoires de ce héro
+  - wins.each do |win|
+    %p= link_to "Contre #{win.loser.name}", fight_path(win)
