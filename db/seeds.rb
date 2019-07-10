@@ -16,14 +16,14 @@
                critical_rate: "100"
 end
 
-Weapon.create! name: "Justifier", min_damage: 10, max_damage: 20
-Weapon.create! name: "Treachery", min_damage: 51, max_damage: 78
-Weapon.create! name: "Purifier", min_damage: 160, max_damage: 210
-Weapon.create! name: "Hailstorm Slicer", min_damage: 341, max_damage: 350
-Weapon.create! name: "Whistling Broadsword", min_damage: 10, max_damage: 500
-Weapon.create! name: "Hopeless Skeletal Blade", min_damage: 600, max_damage: 600
+Weapon.create! name: "bow", min_damage: 10, max_damage: 20
+Weapon.create! name: "Sward", min_damage: 51, max_damage: 78
+Weapon.create! name: "Colt", min_damage: 160, max_damage: 210
+Weapon.create! name: "Magnum", min_damage: 341, max_damage: 350
+Weapon.create! name: "Cold", min_damage: 10, max_damage: 500
+Weapon.create! name: "Ak47", min_damage: 600, max_damage: 600
 
-Shield.create! name: "Trainee's Greatshield", armor: 10
-Shield.create! name: "Undead Light Shield", armor: 100
-Shield.create! name: "Champion Redwood Blockade", armor: 300
-Shield.create! name: "Doom's Willow Tower Shield", armor: 500
+Shield.create! name: "Shield 1", armor: 10
+Shield.create! name: "Shield 2", armor: 100
+Shield.create! name: "Shield 3", armor: 300
+Shield.create! name: "Shield 4", armor: 500
