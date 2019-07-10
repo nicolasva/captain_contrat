@@ -1,6 +1,9 @@
 class HerosController < ApplicationController
   before_action :set_hero, only: [:show, :edit, :update, :destroy]
 
+  expose(:hero) do
+    params[:id] ? Hero.find(params[:id]) : Hero.new
+  end
   # GET /heros
   # GET /heros.json
   def index

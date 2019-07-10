@@ -28,6 +28,8 @@ gem 'decent_exposure'
 gem 'reform'
 gem 'slim'
 gem 'slim-rails'
+gem 'simple_form'
+gem 'invoker'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
