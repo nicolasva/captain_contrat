@@ -1,0 +1,9 @@
+= form_for @fight do |f|
+  - if @fight.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@fight.errors.count, "error")} prohibited this fight from being saved:"
+      ul
+        - @fight.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit

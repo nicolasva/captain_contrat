@@ -1,0 +1,19 @@
+h1 Listing fights
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @fights.each do |fight|
+      tr
+        td = link_to 'Show', fight
+        td = link_to 'Edit', edit_fight_path(fight)
+        td = link_to 'Destroy', fight, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Fight', new_fight_path

@@ -1,0 +1,19 @@
+h1 Listing shields
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @shields.each do |shield|
+      tr
+        td = link_to 'Show', shield
+        td = link_to 'Edit', edit_shield_path(shield)
+        td = link_to 'Destroy', shield, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Shield', new_shield_path

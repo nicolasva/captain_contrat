@@ -1,0 +1,2 @@
+class Fight < ApplicationRecord
+end
