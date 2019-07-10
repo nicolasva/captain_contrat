@@ -5,22 +5,12 @@
 # below each fixture, per the syntax in the comments below
 #
 one: 
-  name: "my hero"
-  health: 1
-  attack: 1
-  speed: 5
-  dodge_rate: 0
-  critical_rate: 0
-  power: 1
-  rank: 1
+  name: "weapon1"
+  min_damage: 1
+  max_damage: 2
 # column: value
 #
 two:
-  name: "my hero2"
-  health: 2
-  attack: 2
-  speed: 4
-  dodge_rate: 0
-  critical_rate: 0
-  power: 1
-  rank: 1
+  name: "weapon2"
+  min_damage: 1
+  max_damage: 4
