@@ -4,6 +4,10 @@ class HerosController < ApplicationController
   expose(:hero) do
     params[:id] ? Hero.find(params[:id]) : Hero.new
   end
+
+  expose(:hero_form) do
+    HeroForm.new(hero)
+  end
   # GET /heros
   # GET /heros.json
   def index
@@ -27,15 +31,15 @@ class HerosController < ApplicationController
   # POST /heros
   # POST /heros.json
   def create
-    @hero = Hero.new(hero_params)
-
+    #@hero = Hero.new(hero_params)
     respond_to do |format|
-      if @hero.save
-        format.html { redirect_to @hero, notice: 'Hero was successfully created.' }
-        format.json { render :show, status: :created, location: @hero }
+      if hero_form.validate(params[:hero])
+        hero_form.save 
+        format.html { redirect_to hero_path(hero_form), notice: 'Hero was successfully created.' }
+        format.json { render :show, status: :created, location: hero }
       else
         format.html { render :new }
-        format.json { render json: @hero.errors, status: :unprocessable_entity }
+        format.json { render json: hero.errors, status: :unprocessable_entity }
       end
     end
   end
