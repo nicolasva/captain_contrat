@@ -1,6 +1,26 @@
 class FightsController < ApplicationController
   before_action :set_fight, only: [:show, :edit, :update, :destroy]
 
+  expose(:rank) do
+    params[:rank]
+  end
+
+  expose(:fight) do
+    params[:id] ? Fight.find(params[:id])  : Fight.new
+  end
+
+  expose(:weapons) do
+    Weapon.all
+  end
+
+  expose(:shields) do
+    Shield.all
+  end
+
+  expose(:heroes) do
+    Hero.all
+  end
+
   # GET /fights
   # GET /fights.json
   def index
@@ -14,7 +34,6 @@ class FightsController < ApplicationController
 
   # GET /fights/new
   def new
-    @fight = Fight.new
   end
 
   # GET /fights/1/edit
