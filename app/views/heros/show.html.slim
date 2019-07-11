@@ -2,6 +2,8 @@ p#notice = notice
 
 h1.header.center.orange-text= hero.name
 
+.row
+  = link_to image_tag(hero.avatar_file_name.thumb.url), hero.avatar_file_name.url
 .col.s12
   .col.s6
     p= "Nom : #{hero.name}"
@@ -19,6 +21,6 @@ h1.header.center.orange-text= hero.name
 
   = render "heros/partial/lost/lost", losses: hero.losses
 
-=> link_to 'Edit', edit_hero_path(@hero)
+=> link_to 'Edit', edit_hero_path(hero)
 '|
 =< link_to 'Back', heros_path

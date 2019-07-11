@@ -6,6 +6,8 @@ class Hero < ApplicationRecord
 
   before_save :compute_power_and_rank
 
+  mount_uploader :avatar_file_name, AvatarUploader
+
   def compute_power_and_rank
     self.power = self.health + self.attack
     self.power += self.health * (self.dodge_rate / 100.0)
