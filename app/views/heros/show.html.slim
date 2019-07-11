@@ -2,8 +2,9 @@ p#notice = notice
 
 h1.header.center.orange-text= hero.name
 
-.row
-  = link_to image_tag(hero.avatar_file_name.thumb.url), hero.avatar_file_name.url
+- if hero.avatar_file_name.url
+  .row
+    = link_to image_tag(hero.avatar_file_name.thumb.url), hero.avatar_file_name.url
 .col.s12
   .col.s6
     p= "Nom : #{hero.name}"

@@ -13,7 +13,8 @@ h1.header.center.orange-text Création d'un héro
         = f.input :critical_rate, as: :integer, input_html: {min: 0, max: ENV['MAX_CRITICAL_RATE'].to_i}, wrapper_html: {class: "input-field"}
 
       .col.s3
-        = link_to image_tag(hero.avatar_file_name.thumb.url), hero.avatar_file_name.url unless hero.new_record?
+        - if hero.avatar_file_name.url
+          = link_to image_tag(hero.avatar_file_name.thumb.url), hero.avatar_file_name.url unless hero.new_record?
         = f.input :avatar_file_name 
-        br
-        = f.button :submit, "Créer", class: "waves-effect waves-light btn"
+      br
+      = f.button :submit, "Créer", class: "waves-effect waves-light btn"
