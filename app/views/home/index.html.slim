@@ -1,0 +1,9 @@
+h1.header Captain
+
+.row.center
+  h2 Faire un combat
+  ul
+  - heros.each do |hero|
+    = content_tag_for :li, hero do
+      = link_to "Rang #{hero.name}", new_rank_fight_path(hero.rank)
+      = link_to "See Hero", hero_path(hero)

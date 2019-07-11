@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root 'home#index'
   resources :heros
   resources :fights, except: :new
   resources :ranks, except: [:index, :new, :create, :edit, :update, :show, :destroy] do
