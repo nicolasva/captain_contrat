@@ -5,12 +5,12 @@
 # below each fixture, per the syntax in the comments below
 #
 one: 
-  name: "weapon1"
-  min_damage: 1
-  max_damage: 2
+  name: "bow"
+  min_damage: 10
+  max_damage: 20
 # column: value
 #
 two:
-  name: "weapon2"
-  min_damage: 1
-  max_damage: 4
+  name: "Sward"
+  min_damage: 51
+  max_damage: 78

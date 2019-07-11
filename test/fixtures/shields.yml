@@ -5,10 +5,10 @@
 # below each fixture, per the syntax in the comments below
 #
 one: 
-  name: "test1"
-  armor: 1
+  name: "Shield 1"
+  armor: 10
 # column: value
 #
 two:
-  name: "test2"
-  armor: 2
+  name: "Shield 2"
+  armor: 100
