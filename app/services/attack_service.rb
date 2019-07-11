@@ -30,6 +30,10 @@ class AttackService
 
 
   private
+  def attack_for_bonus(weapon)
+    weapon.min_damage + Random.rand((weapon.max_damage - weapon.min_damage) + 1)
+  end
+
   def damage?(fighter)
     if Random.rand(100) < fighter.critical_rate
       [fighter_attack(fighter) * 2, FightEvent.attack_types['critical']]
@@ -54,7 +58,7 @@ class AttackService
   end
 
   def fighter_attack(fighter)
-    fighter.attack + (fighter.weapon&.bonus_attack_provided).to_i
+    fighter.attack + attack_for_bonus(fighter.weapon).to_i 
   end
 
   def fighter_defense(fighter)
