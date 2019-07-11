@@ -15,7 +15,7 @@ class FightService
 
   private
   def fight_one_two
-    winner, loser = generate_fight_events
+    winner, loser = fight
 
     @fight.winner = winner
     @fight.loser = loser
@@ -25,18 +25,18 @@ class FightService
   end
 
 
-  def generate_fight_events
+  def fight
     attack_service = AttackService.new(fighter_one, fighter_two)
-    first_fighter, second_fighter = attack_service.detect_order_of_attacks
+    first_fighter, second_fighter = attack_service.order_attacks
     while first_fighter.health > 0 && second_fighter.health > 0 do
-      @fight.fight_events << attack_service.attack_against(first_fighter, second_fighter)
-      @fight.fight_events << attack_service.attack_against(second_fighter, first_fighter) unless second_fighter.health == 0
+      @fight.fight_events << attack_service.attack!(first_fighter, second_fighter)
+      @fight.fight_events << attack_service.attack!(second_fighter, first_fighter) unless second_fighter.health == 0
     end
 
-    detect_winner_and_loser(first_fighter, second_fighter)
+    winner_and_loser?(first_fighter, second_fighter)
   end
 
-  def detect_winner_and_loser(first_fighter, second_fighter)
+  def winner_and_loser?(first_fighter, second_fighter)
     first_fighter.health > 0 ? [first_fighter, second_fighter] : [second_fighter, first_fighter]
   end
 end

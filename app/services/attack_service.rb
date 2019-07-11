@@ -7,7 +7,7 @@ class AttackService
   attr_reader :fighter_one, :fighter_two
 
 
-  def detect_order_of_attacks
+  def order_attacks
     if fighter_one.speed >= fighter_two.speed
       [fighter_one, fighter_two]
     else
@@ -16,9 +16,9 @@ class AttackService
   end
 
 
-  def attack_against(fighter, enemy_fighter)
-    damage, attack_type = determine_damage(fighter)
-    health, defend_type = determine_defense(fighter, damage)
+  def attack!(fighter, enemy_fighter)
+    damage, attack_type = damage?(fighter)
+    health, defend_type = defense?(fighter, damage)
 
     FightEvent.create(attacker_name: fighter.name,
                       attack_type: attack_type,
@@ -30,7 +30,7 @@ class AttackService
 
 
   private
-  def determine_damage(fighter)
+  def damage?(fighter)
     if Random.rand(100) < fighter.critical_rate
       [fighter_attack(fighter) * 2, FightEvent.attack_types['critical']]
     else
@@ -38,7 +38,7 @@ class AttackService
     end
   end
 
-  def determine_defense(fighter, damage)
+  def defense?(fighter, damage)
     damage = difference_or_zero_if_negative(damage, fighter_defense(fighter))
 
     if Random.rand(100) < fighter.dodge_rate
