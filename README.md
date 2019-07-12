@@ -1,6 +1,3 @@
-Ce fichier contient le sujet du test que passent les candidats à un poste de dévelopeur chez Captain Contrat.  
-Plus d'infos sur [notre page jobs](https://jobs.captaincontrat.com/)
-
 # Captain Challenge
 
 Bienvenue jeune moussaillon !
