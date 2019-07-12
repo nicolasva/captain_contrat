@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg'
 
 gem 'decent_exposure'
-gem 'reform'
+gem 'reform', git: "https://github.com/trailblazer/reform"
 gem 'slim'
 gem 'slim-rails'
 gem 'simple_form'

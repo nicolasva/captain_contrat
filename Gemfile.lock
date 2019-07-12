@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/trailblazer/reform
+  revision: e1c94c9f8164a12259cd373b7249a670c327dc73
+  specs:
+    reform (2.3.0.rc1)
+      disposable (>= 0.4.2, < 0.5.0)
+      representable (>= 2.4.0, < 3.1.0)
+      uber (< 0.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -47,7 +56,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    bindex (0.7.0)
+    bindex (0.8.1)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
     builder (3.2.3)
@@ -97,7 +106,7 @@ GEM
     erubi (1.8.0)
     eventmachine (1.0.9.1)
     execjs (2.7.0)
-    facter (2.5.1)
+    facter (2.5.4)
     faker (1.9.6)
       i18n (>= 0.7)
     ffi (1.11.1)
@@ -141,7 +150,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.0331)
     mimemagic (0.3.3)
-    mini_magick (4.9.3)
+    mini_magick (4.9.4)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
@@ -185,9 +194,6 @@ GEM
       ffi (~> 1.0)
     record_tag_helper (1.0.0)
       actionview (~> 5.x)
-    reform (2.2.4)
-      disposable (>= 0.4.1)
-      representable (>= 2.4.0, < 3.1.0)
     reform-rails (0.1.7)
       activemodel (>= 3.2)
       reform (>= 2.2.0)
@@ -282,7 +288,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.3)
   record_tag_helper
-  reform
+  reform!
   reform-rails
   sass-rails (~> 5.0)
   selenium-webdriver
