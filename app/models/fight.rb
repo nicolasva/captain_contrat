@@ -4,4 +4,5 @@ class Fight < ApplicationRecord
 
   has_many :fight_events
   
+  scope :find_fight,  ->(id) {includes(winner: [:hero, :weapon, :shield], loser: [:hero, :weapon, :shield]).find(id) }
 end

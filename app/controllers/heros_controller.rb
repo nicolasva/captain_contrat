@@ -1,6 +1,4 @@
 class HerosController < ApplicationController
-  before_action :set_hero, only: [:show, :edit, :update, :destroy]
-
   expose(:hero) do
     params[:id] ? Hero.find(params[:id]) : Hero.new
   end
@@ -46,21 +44,11 @@ class HerosController < ApplicationController
   end
 
   def destroy
-    @hero.destroy
+    hero.destroy
     respond_to do |format|
       format.html { redirect_to heros_url, notice: 'Hero was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_hero
-      @hero = Hero.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def hero_params
-      params.fetch(:hero, {})
-    end
 end

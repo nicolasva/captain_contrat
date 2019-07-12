@@ -10,7 +10,7 @@ class FightsController < ApplicationController
   end
 
   expose(:fight) do
-    params[:id] ? Fight.includes(winner: [:hero, :weapon, :shield], loser: [:hero, :weapon, :shield]).find(params[:id])  : Fight.new
+    params[:id] ? Fight.find_fight(params[:id])  : Fight.new
   end
 
   expose(:weapons) do
