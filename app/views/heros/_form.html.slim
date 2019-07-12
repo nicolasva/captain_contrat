@@ -17,4 +17,4 @@ h1.header.center.orange-text Création d'un héro
           = link_to image_tag(hero.avatar_file_name.thumb.url), hero.avatar_file_name.url unless hero.new_record?
         = f.input :avatar_file_name 
       br
-      = f.button :submit, "Créer", class: "waves-effect waves-light btn"
+      = f.button :submit, hero.new_record? ? "Créer" : "Mettre à jour", class: "waves-effect waves-light btn"

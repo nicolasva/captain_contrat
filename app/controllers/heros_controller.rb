@@ -9,29 +9,17 @@ class HerosController < ApplicationController
     HeroForm.new(hero)
   end
 
-  # GET /heros
-  # GET /heros.json
-  def index
-    @heros = Hero.all
-  end
 
-  # GET /heros/1
-  # GET /heros/1.json
   def show
   end
 
-  # GET /heros/new
   def new
   end
 
-  # GET /heros/1/edit
   def edit
   end
 
-  # POST /heros
-  # POST /heros.json
   def create
-    #@hero = Hero.new(hero_params)
     respond_to do |format|
       if hero_form.validate(params[:hero])
         hero_form.save 
@@ -44,8 +32,6 @@ class HerosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /heros/1
-  # PATCH/PUT /heros/1.json
   def update
     respond_to do |format|
       if hero_form.validate(params[:hero])
@@ -59,8 +45,6 @@ class HerosController < ApplicationController
     end
   end
 
-  # DELETE /heros/1
-  # DELETE /heros/1.json
   def destroy
     @hero.destroy
     respond_to do |format|

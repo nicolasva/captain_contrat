@@ -1,9 +1,0 @@
-= form_for @shield do |f|
-  - if @shield.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@shield.errors.count, "error")} prohibited this shield from being saved:"
-      ul
-        - @shield.errors.full_messages.each do |message|
-          li = message
-
-  .actions = f.submit

@@ -25,40 +25,16 @@ class FightsController < ApplicationController
     Hero.all
   end
 
-  # GET /fights
-  # GET /fights.json
-  def index
-    @fights = Fight.all
-  end
-
-  # GET /fights/1
-  # GET /fights/1.json
   def show
   end
 
-  # GET /fights/new
   def new
   end
 
-  # GET /fights/1/edit
-  def edit
-  end
 
   # POST /fights
   # POST /fights.json
   def create
-    #@fight = Fight.new(fight_params)
-
-    #respond_to do |format|
-    #  if @fight.save
-    #    format.html { redirect_to @fight, notice: 'Fight was successfully created.' }
-    #    format.json { render :show, status: :created, location: @fight }
-    #  else
-    #    format.html { render :new }
-    #    format.json { render json: @fight.errors, status: :unprocessable_entity }
-    #  end
-    #end
-
     if params[:one][:hero_id] == params[:two][:hero_id]
       flash[:alert] = "Impossible de faire combattre un héro avec lui-même..."
       redirect_to new_rank_fight_path(Hero.find(params[:one][:hero_id]).rank)
@@ -66,30 +42,6 @@ class FightsController < ApplicationController
       fight = FightService.new(fighter_params(:one), fighter_params(:two)).call
 
       redirect_to fight_path(fight)
-    end
-  end
-
-  # PATCH/PUT /fights/1
-  # PATCH/PUT /fights/1.json
-  def update
-    respond_to do |format|
-      if @fight.update(fight_params)
-        format.html { redirect_to @fight, notice: 'Fight was successfully updated.' }
-        format.json { render :show, status: :ok, location: @fight }
-      else
-        format.html { render :edit }
-        format.json { render json: @fight.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /fights/1
-  # DELETE /fights/1.json
-  def destroy
-    @fight.destroy
-    respond_to do |format|
-      format.html { redirect_to fights_url, notice: 'Fight was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
