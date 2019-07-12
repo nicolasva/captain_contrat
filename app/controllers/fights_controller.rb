@@ -25,6 +25,14 @@ class FightsController < ApplicationController
     Hero.all
   end
 
+  expose(:fighter_one_form) do
+    FighterForm.new(Fighter.new)
+  end
+
+  expose(:fighter_two_form) do
+    FighterForm.new(Fighter.new)
+  end
+
   def show
   end
 
@@ -39,9 +47,13 @@ class FightsController < ApplicationController
       flash[:alert] = "Impossible de faire combattre un héro avec lui-même..."
       redirect_to new_rank_fight_path(Hero.find(params[:one][:hero_id]).rank)
     else
-      fight = FightService.new(fighter_params(:one), fighter_params(:two)).call
-
-      redirect_to fight_path(fight)
+      if fighter_one_form.validate(params[:one]) && fighter_two_form.validate(params[:two])
+        fight = FightService.new(fighter_params(:one), fighter_params(:two)).call
+        redirect_to fight_path(fight)
+      else
+        flash[:alert] = "Veuillez selectionner les armes et boucliers"
+        redirect_to new_rank_fight_path(Hero.find(params[:one][:hero_id]).rank)
+      end
     end
   end
 

@@ -6,7 +6,6 @@ class Fighter < ApplicationRecord
   has_one :win, class_name: "Fight", foreign_key: "winner_id"
   has_one :loss, class_name: "Fight", foreign_key: "loser_id"
 
-
   delegate :name, :health, :attack, :speed, :dodge_rate, :critical_rate, :power, :rank, to: :hero
 
 
