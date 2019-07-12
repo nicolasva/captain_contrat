@@ -20,11 +20,11 @@ class AttackService
     damage, attack_type = damage?(fighter)
     health, defend_type = defense?(fighter, damage)
 
-    FightEvent.create(attacker_name: fighter.name,
-                      attack_type: attack_type,
-                      attack_damage: damage,
-                      defender_name: enemy_fighter.name,
-                      defend_type: defend_type,
+    FightEvent.create(attacker_name:   fighter.name,
+                      attack_type:     attack_type,
+                      attack_damage:   damage,
+                      defender_name:   enemy_fighter.name,
+                      defend_type:     defend_type,
                       defender_health: health)
   end
 
