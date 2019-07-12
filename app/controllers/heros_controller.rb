@@ -24,6 +24,7 @@ class HerosController < ApplicationController
         format.html { redirect_to hero_path(hero_form), notice: 'Hero was successfully created.' }
         format.json { render :show, status: :created, location: hero_form }
       else
+        flash[:alert] = "Veuillez vérifier tout les champs"
         format.html { render :new }
         format.json { render json: hero_form.errors, status: :unprocessable_entity }
       end
@@ -37,6 +38,7 @@ class HerosController < ApplicationController
         format.html { redirect_to hero_path(hero_form), notice: 'Hero was successfully updated.' }
         format.json { render :show, status: :ok, location: hero_form}
       else
+        flash[:alert] = "Veuillez vérifier tout les champs"
         format.html { render :edit }
         format.json { render json: hero_form.errors, status: :unprocessable_entity }
       end

@@ -1,10 +1,10 @@
 class HeroForm < Reform::Form
-  property :name
-  property :health
-  property :attack
-  property :speed
-  property :dodge_rate
-  property :critical_rate
+  property :name, validates: {presence: true}
+  property :health, validates: {presence: true}
+  property :attack, validates: {presence: true}
+  property :speed, validates: {presence: true}
+  property :dodge_rate, validates: {presence: true}
+  property :critical_rate, validates: {presence: true}
   property :avatar_file_name
   property :avatar_content_type
   property :avatar_file_size
