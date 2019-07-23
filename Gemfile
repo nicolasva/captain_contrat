@@ -34,6 +34,7 @@ gem 'reform-rails'
 gem 'record_tag_helper'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'dry-validation'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
